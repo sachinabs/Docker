@@ -7,4 +7,4 @@ services:
     volumes:
       - ./src:/app/src
     environment:
-      - REACT_APP_NAME=react-app
+      - REACT_APP_NAME=note-app
