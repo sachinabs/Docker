@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+const axios = require('axios');
+const sendFormDataToDatabase = (e) => {
+  const nameOfUser = e.target.name.value;
+  const mobileNumberOfUser = e.target.mobileNumber.value;
+  const userData = {
+    name: nameOfUser,
+    mobileNumber: mobileNumberOfUser,
+  };
+  axios.post('http://localhost:5000/users/add', userData)
+    .then((res) => {
+    if(res.status === 200) {
+      alert('User added successfully');
+    };
+  })
+
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Form to store name and mobileNumber */}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          sendFormDataToDatabase(e);
+        }}
+      >
+        <label>
+          Name:
+          <input type="text" name="name" placeholder="Enter name..." />
+        </label>
+        <label>
+          Mobile Number:
+          <input type="text" name="mobileNumber" placeholder="Enter mobile number..." />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+
+      <h1>hello react</h1>
     </div>
   );
 }
