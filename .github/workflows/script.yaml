@@ -16,5 +16,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "sachinabs" --password-stdin
-        docker image build -t sachinabs/react-application:v1 .
-        docker push sachinabs/react-application:v1
+        docker image build -t sachinabs/react-application:v2 .
+        docker push sachinabs/react-application:v2

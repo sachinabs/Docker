@@ -26,6 +26,7 @@ function App() {
         }}
       >
         <label>
+          <h1>Simple form</h1>
           Name:
           <input type="text" name="name" placeholder="Enter name..." />
         </label>
